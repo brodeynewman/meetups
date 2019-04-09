@@ -8,8 +8,6 @@ const Router = express.Router();
  * Ex: Below would be an example endpoint for this resource.
  * GET /api/samples/2344
  */
-Router.get('/', controllers.getSomethingFromSomewhere);
-Router.get('/:id', controllers.getSomethingWithId);
-Router.post('/', controllers.postSomethingToSomewhere);
+Router.get('/', controllers.doSomeExpensiveWork);
 
 export default Router;

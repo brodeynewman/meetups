@@ -2,12 +2,16 @@
  * Business logic exists in here
  */
 
-import _ from 'lodash';
 import debug from 'debug';
+import crypto from 'crypto';
 
-import { getSomethingFromSomeApi } from '../services/someApi';
+import config from '../config';
 
 const log = debug('app:controllers:sample');
+
+const handleCryptoResponse = () => {
+  console.log('finished with crypto');
+};
 
 /**
  * Gets something from somehwere...
@@ -15,34 +19,13 @@ const log = debug('app:controllers:sample');
  * @param {Object} response - response object from Express
  * @returns {Object} - response object
  */
-export const getSomethingFromSomewhere = (request, response) => {
-  log('Getting something...');
+export const doSomeExpensiveWork = (request, response) => {
+  log('Running expensive functions...');
+
+  for (let i = 0; i < config.CRYPTO_ITERATION_COUNT; i++) {
+    console.log('lol');
+    crypto.pbkdf2('a', 'b', 100000, 512, 'sha512', handleCryptoResponse);
+  }
 
   return response.json({ succcess: true });
-};
-
-/**
- * Gets something from somehwere...
- * @param {Object} request - request object from Express
- * @param {Object} response - response object from Express
- * @returns {Promise<{ success }>} - response object
- */
-export const postSomethingToSomewhere = (request, response) => {
-  log('Posting somehwere...', request.body);
-
-  return response.json({ succcess: true });
-};
-
-/**
- * Gets something from somehwere...
- * @param {Object} request - request object from Express
- * @param {Object} response - response object from Express
- * @returns {Promise<{ success, data }>} - response object
- */
-export const getSomethingWithId = async (request, response) => {
-  const id = _.get(request, 'params.id');
-
-  const data = await getSomethingFromSomeApi(id);
-
-  return response.json({ succes: true, data });
 };

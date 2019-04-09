@@ -10,5 +10,5 @@ dotenv.config();
  */
 export default Object.freeze({
   PORT: process.env.PORT || 8008,
-  SOME_OTHER_API_URL: process.env.SOME_OTHER_API_URL || 'http://localhost:3001',
+  CRYPTO_ITERATION_COUNT: process.env.CRYPTO_ITERATION_COUNT || 10,
 });

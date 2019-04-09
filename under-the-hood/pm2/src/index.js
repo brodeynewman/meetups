@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 
 import Router from './routes';
 import config from './config';
+import { countProbe, markProbe } from './utils/pm2';
 
 /**
  * Instantiates debug module with "server" namespace
@@ -16,6 +17,8 @@ const app = express();
 /**
  * Middlewares
  */
+app.use(markProbe);
+app.use(countProbe);
 app.use(bodyParser.json());
 app.use(cors());
 

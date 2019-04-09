@@ -8,11 +8,13 @@
     "build": "npm run clean && npx babel -d ./dist ./src -s --ignore 'src/**/*.spec.js','src/**/*.test.js'",
     "start": "DEBUG=app* nodemon --exec npx babel-node ./src/index.js",
     "test": "NODE_ENV=test npx jest",
-    "test:cover": "npm run test -- --coverage"
+    "test:cover": "npm run test -- --coverage",
+    "start:prod": "pm2"
   },
   "author": "Brodey Newman",
   "license": "MIT",
   "dependencies": {
+    "@pm2/io": "^4.1.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "debug": "^4.1.1",

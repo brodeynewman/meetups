@@ -6,6 +6,7 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "rules": {
+    "no-plusplus": 0,
     "import/prefer-default-export": 0,
     "valid-jsdoc": 1,
     "require-jsdoc": [

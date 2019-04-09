@@ -31,3 +31,5 @@ app.use('/api', Router);
  * Server init
  */
 app.listen(config.PORT, () => log(`Server is listening on ${config.PORT}`));
+
+throw new Error('A fatal error occurred');

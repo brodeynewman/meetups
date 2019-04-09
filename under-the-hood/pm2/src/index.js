@@ -32,4 +32,6 @@ app.use('/api', Router);
  */
 app.listen(config.PORT, () => log(`Server is listening on ${config.PORT}`));
 
-throw new Error('A fatal error occurred');
+if (process.env.FATAL) {
+  throw new Error('A fatal error occurred');
+}

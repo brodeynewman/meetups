@@ -9,7 +9,8 @@
     "start": "DEBUG=app* nodemon --exec npx babel-node ./src/index.js",
     "test": "NODE_ENV=test npx jest",
     "test:cover": "npm run test -- --coverage",
-    "start:prod": "DEBUG=app* pm2 start dist/index.js -i 0"
+    "start:prod": "DEBUG=app* pm2 start dist/index.js -i 0",
+    "start:fatal": "FATAL=1 DEBUG=app* pm2 start dist/index.js -i 0"
   },
   "author": "Brodey Newman",
   "license": "MIT",

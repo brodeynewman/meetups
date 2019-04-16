@@ -9,5 +9,6 @@ const Router = express.Router();
  * GET /api/samples/2344
  */
 Router.get('/', controllers.doSomeExpensiveWork);
+Router.get('/flood', controllers.destroyMemory);
 
 export default Router;
